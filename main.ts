@@ -27,8 +27,6 @@ export default class InsertHeadingLink extends Plugin {
 	}
 
 private addHeadingLink(editor: Editor) {
-		const view = this.app.workspace.getActiveViewOfType(MarkdownView);
-		if (!view) return;
 		const selected_text = editor.getSelection()
 		editor.replaceSelection(
 			'[[##'+selected_text+']]'
