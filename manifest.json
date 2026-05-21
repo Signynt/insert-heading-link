@@ -1,9 +1,9 @@
 {
 	"id": "insert-heading-link",
 	"name": "Insert Heading Link",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"minAppVersion": "0.9.12",
-	"description": "Add a Link to a Heading",
+	"description": "Add a Link to a Heading.",
 	"author": "Signynt",
 	"authorUrl": "https://github.com/Signynt",
 	"isDesktopOnly": false
