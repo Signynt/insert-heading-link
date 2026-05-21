@@ -11,7 +11,7 @@ if you want to view the source, please visit the github repository of this plugi
 
 const prod = (process.argv[2] === 'production');
 
-esbuild.build({
+const options = {
 	banner: {
 		js: banner,
 	},
@@ -43,10 +43,21 @@ esbuild.build({
 		'@codemirror/view',
 		...builtins],
 	format: 'cjs',
-	watch: !prod,
 	target: 'es2016',
 	logLevel: "info",
 	sourcemap: prod ? false : 'inline',
 	treeShaking: true,
 	outfile: 'main.js',
-}).catch(() => process.exit(1));
+};
+
+async function build() {
+	if (prod) {
+		await esbuild.build(options);
+		return;
+	}
+
+	const context = await esbuild.context(options);
+	await context.watch();
+}
+
+build().catch(() => process.exit(1));
